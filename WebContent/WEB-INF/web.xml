@@ -19,4 +19,14 @@
     <servlet-name>Datos</servlet-name>
     <url-pattern>/datos.jr</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DatosReg</display-name>
+    <servlet-name>DatosReg</servlet-name>
+    <servlet-class>com.zubiri.Formulario2.DatosReg</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DatosReg</servlet-name>
+    <url-pattern>/datosReg.jr</url-pattern>
+  </servlet-mapping>
 </web-app>
