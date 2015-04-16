@@ -1,6 +1,7 @@
 package com.zubiri.Formulario2;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,9 @@ public class DatosReg extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		String usuario = request.getParameter("usuario");
 		String pass = request.getParameter("pass");
 		String pass2 = request.getParameter("pass2");
@@ -42,16 +46,21 @@ public class DatosReg extends HttpServlet {
 		String apellido2 = request.getParameter("apellido2");
 		String dni = request.getParameter("dni");
 		String sexo = request.getParameter("sexo");
+		
+		out.println("<html>");
+		out.println("<head><title></title></head>");
+		out.println("<body>");	
 		if (pass.equals(pass2)){
-			System.out.println("¡Registro realizado correctamente!");
-			System.out.println("Tus datos son los siguientes: ");
-			System.out.println("Nombre completo: "+nombre+" "+apellido1+" "+apellido2);
-			System.out.println("DNI: "+dni);
-			System.out.println("Sexo: "+sexo);
-			System.out.println("Nombre de usuario: "+usuario);
+			out.println("<p>¡Registro realizado correctamente!</p>");
+			out.println("<p>Tus datos son los siguientes: </p>");
+			out.println("<p>Nombre completo: "+nombre+" "+apellido1+" "+apellido2+"</p>");
+			out.println("<p>DNI: "+dni+"</p>");
+			out.println("<p>Sexo: "+sexo+"</p>");
+			out.println("<p>Nombre de usuario: "+usuario+"</p>");
 		}else {
-			System.out.println("¡ERROR! Las contraseñas 1 y 2 no coinciden...");
+			out.println("<p>¡ERROR! Las contraseñas 1 y 2 no coinciden...</p>");
 		}
+		out.println("</body></html>");
 	}
 
 }

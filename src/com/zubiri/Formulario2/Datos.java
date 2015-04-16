@@ -1,6 +1,7 @@
 package com.zubiri.Formulario2;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,14 +35,19 @@ public class Datos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		String usuario = request.getParameter("usuario");
 		String pass = request.getParameter("pass");
+		out.println("<html>");
+		out.println("<head><title></title></head>");
+		out.println("<body>");		
 		if(usuario.equals("odeialba") && pass.equals("zubiri")){
-			System.out.println("¡Bienvenido!\nTu nombre de usuario es: "+usuario+"\nTu contraseña es: ¡¡¡QUE ESO ES SECRETO!!!");
+			out.println("<p>¡Bienvenido!<br>Tu nombre de usuario es: "+usuario+"<br>Tu contraseña es: ¡¡¡QUE ESO ES SECRETO!!!</p>");
 		} else {
-			System.out.println(":O ¡¡¡NO ERES TU!!!");
+			out.println("<p>:O ¡¡¡NO ERES TU!!!</p>");
 		}
-		
+		out.println("</body></html>");
 	}
-
 }
